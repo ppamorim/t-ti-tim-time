@@ -1,0 +1,40 @@
+[package]
+name = "t-ti-tim-time"
+version = "0.1.0"
+edition = "2021"
+description = "Convert a seconds-of-day timestamp into hour, minute, and second (Joffe V3)."
+license = "MIT"
+publish = false
+
+[lib]
+name = "t_ti_tim_time"
+
+[dependencies]
+
+[dev-dependencies]
+criterion = "0.5"
+datealgo = { version = "0.2", default-features = false }
+proptest = "1"
+
+[[bench]]
+name = "hms"
+harness = false
+
+[profile.test-o1]
+inherits = "test"
+opt-level = 1
+
+[profile.test-o2]
+inherits = "test"
+opt-level = 2
+
+[profile.test-o3]
+inherits = "test"
+opt-level = 3
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(mutants)'] }
+
+[package.metadata.mutants]
+exclude_globs = ["src/assurance/**"]
+timeout_multiplier = 5.0

@@ -1,0 +1,26 @@
+[package]
+name = "t-ti-tim-time-fuzz"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+t-ti-tim-time = { path = ".." }
+
+[[bin]]
+name = "reference_equivalence"
+path = "fuzz_targets/reference_equivalence.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "invariants"
+path = "fuzz_targets/invariants.rs"
+test = false
+doc = false
+bench = false

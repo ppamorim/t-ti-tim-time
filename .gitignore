@@ -1,0 +1,30 @@
+# Cargo
+/target/
+/debug/
+**/*.rs.bk
+*.pdb
+
+# cargo-mutants
+/mutants.out/
+/mutants.out.old/
+
+# proptest
+/proptest-regressions/
+
+# cargo-fuzz
+/fuzz/target/
+/fuzz/corpus/
+/fuzz/artifacts/
+/fuzz/coverage/
+
+# criterion (also written under target/ by default)
+/target/criterion/
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
